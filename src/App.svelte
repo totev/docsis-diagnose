@@ -1,12 +1,27 @@
 <script lang="ts">
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
+  import { decode } from "@borderless/base64";
+  import brotliDecompress from "brotli/decompress";
+  import queryString from "query-string";
+  import logo from "./assets/svelte.png";
+  import Counter from "./lib/Counter.svelte";
+
+  const parsedHash = queryString.parse(location.hash);
+  let json = "";
+  try {
+    const decompressedData = brotliDecompress(
+      decode(parsedHash.docsis as string) as any
+    );
+    json = new TextDecoder().decode(decompressedData);
+  } catch (error) {
+    console.warn("No hash given", error);
+  }
 </script>
 
 <main>
   <img src={logo} alt="Svelte Logo" />
   <h1>Hello Typescript!</h1>
-
+  hash: {parsedHash.docsis}
+  json: {json}
   <Counter />
 
   <p>
@@ -22,8 +37,8 @@
 
 <style>
   :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   main {
