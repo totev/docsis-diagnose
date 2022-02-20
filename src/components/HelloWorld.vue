@@ -6,17 +6,18 @@
 </template>
 
 <script>
-import { decode } from "@borderless/base64";
 import brotliDecompress from "brotli/decompress";
+import { decode } from "@borderless/base64";
+
 import queryString from "query-string";
 export default {
   name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
-      parsedHash: ""
+      parsedHash: "",
     };
   },
   setup: () => {
@@ -30,7 +31,7 @@ export default {
       console.warn("No hash given", error);
     }
     return { json };
-  }
+  },
 };
 </script>
 

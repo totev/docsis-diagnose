@@ -1,4 +1,6 @@
-# fam
+# smmwio - Sind meine Modemwerte i.O?
+
+Check it out: https://smmwio.endofco.de
 
 ## Project setup
 ```
