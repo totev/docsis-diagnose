@@ -5,7 +5,7 @@ import { decode } from "@borderless/base64";
 
 import queryString from "query-string";
 import DownloadChart from "./DownloadChart.vue";
-// inferred type: { title: string }
+import UploadChart from "./Upstream.vue";
 const state = reactive({ docsisJson: "" });
 
 const parsedHash = queryString.parse(location.hash) as any;
@@ -23,6 +23,7 @@ try {
   <div class="greetings">
     <span class="green" v-if="state.docsisJson">
       <DownloadChart :docsisData="state.docsisJson" />
+      <UploadChart :docsisData="state.docsisJson" />
     </span>
   </div>
 </template>
