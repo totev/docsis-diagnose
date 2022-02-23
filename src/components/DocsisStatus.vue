@@ -4,7 +4,7 @@ import brotliDecompress from "brotli/decompress";
 import { decode } from "@borderless/base64";
 
 import queryString from "query-string";
-import DownloadChart from "./DownloadChart.vue";
+import DownloadChart from "./DownstreamChart.vue";
 import UploadChart from "./Upstream.vue";
 const state = reactive({ docsisJson: "" });
 

@@ -9,7 +9,7 @@ const props = defineProps(['docsisData'])
 
 const chartOption: EChartsOption = {
   title: {
-    text: "Download values",
+    text: "Downstream values",
   },
   tooltip: {
     trigger: "axis",
