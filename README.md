@@ -1,6 +1,6 @@
 # smmwio - Sind meine Modemwerte i.O?
 
-Check it out: https://smmwio.endofco.de
+Check it out: [https://smmwio.totev.dev](https://smmwio.totev.dev)
 
 ## Recommended IDE Setup
 
