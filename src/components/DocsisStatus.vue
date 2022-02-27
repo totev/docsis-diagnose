@@ -5,7 +5,7 @@ import { decode } from "@borderless/base64";
 
 import queryString from "query-string";
 import DownloadChart from "./DownstreamChart.vue";
-import UploadChart from "./Upstream.vue";
+import UploadChart from "./UpstreamChart.vue";
 const state = reactive({ docsisJson: "" });
 
 function parseHash(locationHash: string): void {

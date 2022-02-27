@@ -5,7 +5,12 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import type { EChartsOption } from "echarts";
-const props = defineProps(['docsisData'])
+const props = defineProps(["docsisData"]);
+
+const combinedUpstream = [
+  ...(props.docsisData?.upstream ?? []),
+  ...(props.docsisData?.upstreamOfdma ?? []),
+];
 
 const chartOption: EChartsOption = {
   title: {
@@ -19,7 +24,7 @@ const chartOption: EChartsOption = {
     axisLabel: {
       formatter: "ch{value}",
     },
-    data: props.docsisData?.upstream.map((docsis) => docsis.channelId),
+    data: combinedUpstream.map((docsis) => docsis.channelId),
   },
   yAxis: {
     type: "value",
@@ -33,7 +38,7 @@ const chartOption: EChartsOption = {
   },
   series: [
     {
-      data: props.docsisData?.upstream.map((docsis) => docsis.powerLevel),
+      data: combinedUpstream.map((docsis) => docsis.powerLevel),
       type: "line",
       name: "Power level",
     },
