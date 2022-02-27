@@ -1,5 +1,5 @@
 <template>
-  <v-chart class="chart" :option="option" />
+  <v-chart class="chart" :option="option" autoresize />
 </template>
 
 <script setup lang="ts">
@@ -44,6 +44,6 @@ const option = reactive(chartOption);
 </script>
 <style scoped>
 .chart {
-  height: 400px;
+  min-height: 400px;
 }
 </style>

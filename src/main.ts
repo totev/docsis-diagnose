@@ -1,8 +1,9 @@
-import { LineChart } from "echarts/charts";
+import { LineChart, GaugeChart } from "echarts/charts";
 import {
   GridComponent,
   TitleComponent,
   TooltipComponent,
+  MarkAreaComponent,
 } from "echarts/components";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
@@ -13,6 +14,8 @@ import App from "./App.vue";
 use([
   CanvasRenderer,
   LineChart,
+  GaugeChart,
+  MarkAreaComponent,
   GridComponent,
   TooltipComponent,
   TitleComponent,

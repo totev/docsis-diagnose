@@ -6,7 +6,7 @@ import TheWelcome from "./components/TheWelcome.vue";
 <template>
   <header>
     <div class="wrapper">
-      <DocsisStatus msg="You did it!" />
+      <DocsisStatus />
     </div>
   </header>
 

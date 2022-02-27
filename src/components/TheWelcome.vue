@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import WelcomeItem from "./WelcomeItem.vue";
+import IconCommunity from "./icons/IconCommunity.vue";
 import DocumentationIcon from "./icons/IconDocumentation.vue";
+import IconSupport from "./icons/IconSupport.vue";
+import IconTooling from "./icons/IconTooling.vue";
+import WelcomeItem from "./WelcomeItem.vue";
 </script>
 
 <template>
@@ -16,5 +19,35 @@ import DocumentationIcon from "./icons/IconDocumentation.vue";
     >vodafone-station-cli tool</a> when ran with the
     <i>docsis -w</i> option
     . It contains the docsis values in JSON.
+  </WelcomeItem>
+  <WelcomeItem>
+    <template #icon>
+      <IconCommunity />
+    </template>
+    <template #heading>Data privacy</template>
+    All of the docsis data for plotting is being done in the browser, never leaves it and does not get collected. Feel free to inspect the code on
+    <a
+      target="_blank"
+      href="http://github.com/totev/smmwio"
+    >GitHub</a>!
+  </WelcomeItem>
+  <WelcomeItem>
+    <template #icon>
+      <IconSupport />
+    </template>
+    <template #heading>Support</template>
+    If you have any ideas on how to better visualize the docsis data or have found a bug, please open an issue on either of the above projects GitHub pages.
+  </WelcomeItem>
+  <WelcomeItem>
+    <template #icon>
+      <IconTooling />
+    </template>
+    <template #heading>Tooling</template>
+    The charts on this site are created with
+    <a
+      href="https://echarts.apache.org/"
+      target="blank"
+    >Apache ECharts</a>, the site itself with
+    <a href="https://vuejs.org" target="blank">Vue.js</a>
   </WelcomeItem>
 </template>
