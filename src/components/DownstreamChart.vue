@@ -5,12 +5,15 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import type { EChartsOption } from "echarts";
+import * as R from "remeda";
+
 const props = defineProps(["docsisData"]);
 
-const combinedDownstream = [
+const combinedDownstream = R.sortBy([
   ...(props.docsisData?.downstream ?? []),
   ...(props.docsisData?.downstreamOfdm ?? []),
-];
+], R.prop("frequency"));
+
 
 const chartOption: EChartsOption = {
   title: {
