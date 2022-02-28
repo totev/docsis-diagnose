@@ -6,6 +6,7 @@ import { decode } from "@borderless/base64";
 import queryString from "query-string";
 import DownloadChart from "./DownstreamChart.vue";
 import UploadChart from "./UpstreamChart.vue";
+import DocsisTable from "./DocsisTable.vue";
 const state = reactive({ docsisJson: "" });
 
 function parseHash(locationHash: string): void {
@@ -38,6 +39,7 @@ onUnmounted(() => {
     <div v-if="state.docsisJson">
       <DownloadChart :docsisData="state.docsisJson" />
       <UploadChart :docsisData="state.docsisJson" />
+      <DocsisTable :docsisData="state.docsisJson" />
       <pre v-show="false">
         {{ state.docsisJson }}
       </pre>
