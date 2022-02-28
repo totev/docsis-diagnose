@@ -28,7 +28,7 @@ import WelcomeItem from "./WelcomeItem.vue";
     All of the docsis data for plotting is being done in the browser, never leaves it and does not get collected. Feel free to inspect the code on
     <a
       target="_blank"
-      href="http://github.com/totev/smmwio"
+      href="http://github.com/totev/docsis-diagnose"
     >GitHub</a>!
   </WelcomeItem>
   <WelcomeItem>
