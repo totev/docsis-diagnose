@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, onMounted, onUnmounted, ref } from "vue";
+import { reactive, onMounted, onUnmounted } from "vue";
 import brotliDecompress from "brotli/decompress";
 import { decode } from "@borderless/base64";
 
@@ -40,8 +40,8 @@ onUnmounted(() => {
     <div v-if="state.docsisJson">
       <DownloadChart :docsisData="state.docsisJson" />
       <UploadChart :docsisData="state.docsisJson" />
-      <DocsisJson :docsisData="state.docsisJson" />
       <DocsisTable :docsisData="state.docsisJson" />
+      <DocsisJson :docsisData="state.docsisJson" />
       <pre v-show="false">
         {{ state.docsisJson }}
       </pre>
