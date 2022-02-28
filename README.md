@@ -1,6 +1,6 @@
-# smmwio - Sind meine Modemwerte i.O?
+# docsis-diagnose - Is my docsis connection okay?
 
-Check it out: [https://smmwio.totev.dev](https://smmwio.totev.dev)
+Check it out: [https://docsis-diagnose.totev.dev](https://docsis-diagnose.totev.dev)
 
 ## Recommended IDE Setup
 
