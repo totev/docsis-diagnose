@@ -7,6 +7,7 @@ import queryString from "query-string";
 import DownloadChart from "./DownstreamChart.vue";
 import UploadChart from "./UpstreamChart.vue";
 import DocsisTable from "./DocsisTable.vue";
+import DocsisJson from "./DocsisJson.vue";
 const state = reactive({ docsisJson: "" });
 
 function parseHash(locationHash: string): void {
@@ -39,6 +40,7 @@ onUnmounted(() => {
     <div v-if="state.docsisJson">
       <DownloadChart :docsisData="state.docsisJson" />
       <UploadChart :docsisData="state.docsisJson" />
+      <DocsisJson :docsisData="state.docsisJson" />
       <DocsisTable :docsisData="state.docsisJson" />
       <pre v-show="false">
         {{ state.docsisJson }}
@@ -47,9 +49,8 @@ onUnmounted(() => {
     <div v-else>
       No docsis data given :( Try the
       <a
-        href="/#docsis=G3cTABwHjttchShw99mopQjZnlljpnx0e5Pd4L1jUoQSSLZ1WLr6-t_fayEIyn8z_97MSSvkfbxz4h1bqRQOUFtfUH62O4xd9ACDi33tkBQ3q0HZ_isCCXsng5_I5ebyfP1YkucKeAebu4iWkd4Gek800uQsY3Ahfdx3r6G4kCP3y1uS_H78CIuF9LFnBOCr2oEvRjCmbJuplCUBRK_DlC5Kh2fLkf1_UFs2OlEjBI7N2eC6HA2ZZuSkKwidXI2B5-MIDpmT5PRP59B0koYJTdgbYyLC0FM9wYJ0E09n65ESKsNmKzldRQoSem6O0Q_axmxWNd90goPKaTNDNwdtiXYycU8SWIULGmb-F3IKWFAxBTIaGXDlBumIznEpG1wXw6HnJNvSATv57HwYzXGzc6tA7WO4bJNgL6ArXD5Jbwk6w1MnGKvgKqpfKHHL0tB2kZLoIniA9QHGoisI_7tILIhHzdXaF3Dg9L39AfPN6P7TnS12EMrWGsXWSXVdvbdvv4ZAgbztj4TRW3eZ_6-dFpOyXrd8gPUqmWs12OTwxgshBQH0kAIgFhj4_rG0_xMdPGH_dbggH-A8L-b_TeYB2gje5RwNE-mjqWffmndO9opcKpe0K3hFn2rNYmjPazk">
-        sample data
-      </a>
+        href="/#docsis=G3cTABwHjttchShw99mopQjZnlljpnx0e5Pd4L1jUoQSSLZ1WLr6-t_fayEIyn8z_97MSSvkfbxz4h1bqRQOUFtfUH62O4xd9ACDi33tkBQ3q0HZ_isCCXsng5_I5ebyfP1YkucKeAebu4iWkd4Gek800uQsY3Ahfdx3r6G4kCP3y1uS_H78CIuF9LFnBOCr2oEvRjCmbJuplCUBRK_DlC5Kh2fLkf1_UFs2OlEjBI7N2eC6HA2ZZuSkKwidXI2B5-MIDpmT5PRP59B0koYJTdgbYyLC0FM9wYJ0E09n65ESKsNmKzldRQoSem6O0Q_axmxWNd90goPKaTNDNwdtiXYycU8SWIULGmb-F3IKWFAxBTIaGXDlBumIznEpG1wXw6HnJNvSATv57HwYzXGzc6tA7WO4bJNgL6ArXD5Jbwk6w1MnGKvgKqpfKHHL0tB2kZLoIniA9QHGoisI_7tILIhHzdXaF3Dg9L39AfPN6P7TnS12EMrWGsXWSXVdvbdvv4ZAgbztj4TRW3eZ_6-dFpOyXrd8gPUqmWs12OTwxgshBQH0kAIgFhj4_rG0_xMdPGH_dbggH-A8L-b_TeYB2gje5RwNE-mjqWffmndO9opcKpe0K3hFn2rNYmjPazk"
+      >sample data</a>
     </div>
   </div>
 </template>
