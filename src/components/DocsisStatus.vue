@@ -15,7 +15,6 @@ function parseHash(locationHash: string): void {
   try {
     const decompressedData = brotliDecompress(decode(parsedHash.docsis));
     const docsisJson = new TextDecoder().decode(decompressedData);
-    console.log("json:", docsisJson);
     state.docsisJson = JSON.parse(docsisJson);
   } catch (error) {
     console.warn("No hash given", error);
