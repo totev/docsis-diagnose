@@ -33,7 +33,7 @@ const chartOption: EChartsOption = {
   yAxis: {
     type: "value",
     axisLabel: {
-      formatter: "{value} db",
+      formatter: "{value} dBmV",
     },
     axisPointer: {
       snap: true,

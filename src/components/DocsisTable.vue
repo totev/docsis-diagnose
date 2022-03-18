@@ -9,17 +9,14 @@
           <th>Modulation</th>
           <th>Power level in dBmV</th>
           <th>Frequency</th>
-          <th>Signal to noise ratio (SNR)</th>
+          <th>Signal to noise ratio (SNR) in dBµV</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td colspan="7">Downstream</td>
         </tr>
-        <tr
-          v-for="downstreamChannel of downstream"
-          :key="downstreamChannel.channelId"
-        >
+        <tr v-for="downstreamChannel of downstream" :key="downstreamChannel.channelId">
           <td>{{ downstreamChannel.channelId }}</td>
           <td>{{ downstreamChannel.channelType }}</td>
           <td>{{ downstreamChannel.modulation }}</td>
@@ -30,10 +27,7 @@
         <tr>
           <td colspan="7">Upstream</td>
         </tr>
-        <tr
-          v-for="upstreamChannel of upstream"
-          :key="upstreamChannel.channelId"
-        >
+        <tr v-for="upstreamChannel of upstream" :key="upstreamChannel.channelId">
           <td>{{ upstreamChannel.channelId }}</td>
           <td>{{ upstreamChannel.channelType }}</td>
           <td>{{ upstreamChannel.modulation }}</td>
@@ -47,8 +41,8 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
 import * as R from "remeda";
+import { reactive } from "vue";
 import HideShow from "./HideShow.vue";
 const props = defineProps(["docsisData"]);
 
