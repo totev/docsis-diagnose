@@ -4,12 +4,24 @@
     <table class="pure-table-striped">
       <thead>
         <tr>
-          <th>Channel ID</th>
-          <th>Channel type</th>
+          <th>
+            Channel
+            <br />ID
+          </th>
+          <th>
+            Channel
+            <br />type
+          </th>
           <th>Modulation</th>
-          <th>Power level in dBmV</th>
+          <th>
+            Power level
+            <br />in dBmV
+          </th>
           <th>Frequency</th>
-          <th>Signal to noise ratio (SNR) in dBµV</th>
+          <th>
+            Signal to noise ratio
+            <br />(SNR) in dBµV
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -76,4 +88,5 @@ function getFrequency(
   return `${docsisChannel.frequencyStart}-${docsisChannel.frequencyEnd}`;
 }
 </script>
-<style scoped></style>
+<style scoped>
+</style>
