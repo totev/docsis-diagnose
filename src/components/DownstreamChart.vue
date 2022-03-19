@@ -8,12 +8,18 @@ import type { EChartsOption } from "echarts";
 import * as R from "remeda";
 
 const props = defineProps(["docsisData"]);
-
-const combinedDownstream = R.sortBy([
-  ...(props.docsisData?.downstream ?? []),
-  ...(props.docsisData?.downstreamOfdm ?? []),
-], R.prop("frequency"));
-
+const units = {
+  "Power level": "dBmV",
+  SNR: "dB",
+};
+const combinedDownstream = R.sortBy(
+  [
+    ...(props.docsisData?.downstream ?? []),
+    ...(props.docsisData?.downstreamOfdm ?? []),
+  ],
+  R.prop("frequency")
+);
+const colors = ["#5470C6", "#EE6666"];
 
 const chartOption: EChartsOption = {
   title: {
@@ -21,14 +27,47 @@ const chartOption: EChartsOption = {
   },
   tooltip: {
     trigger: "axis",
-  },
-  xAxis: {
-    type: "category",
-    axisLabel: {
-      formatter: "ch{value}",
+    formatter: (args: any[]) => {
+      const modulation = combinedDownstream[args[0].dataIndex]?.modulation;
+      let tooltip = `<p>Channel ${args[0].axisValue} @ ${modulation}</p> `;
+      args.forEach(
+        ({
+          marker,
+          seriesName,
+          value,
+        }: {
+          marker: string;
+          seriesName: string;
+          value: number;
+        }) => {
+          value = value || 0;
+          tooltip += `<p>${marker} ${seriesName} ${value} ${units[seriesName as keyof typeof units] ?? ""
+            }</p>`;
+        }
+      );
+
+      return tooltip;
     },
-    data: combinedDownstream.map((docsis) => docsis.channelId),
   },
+  xAxis: [
+    {
+      type: "category",
+      axisTick: {
+        alignWithLabel: true,
+      },
+      axisLabel: {
+        formatter: "ch{value}",
+      },
+      data: combinedDownstream.map((docsis) => docsis.channelId),
+    },
+    {
+      type: "category",
+      axisTick: {
+        alignWithLabel: true,
+      },
+      data: combinedDownstream.map((docsis) => docsis.modulation),
+    },
+  ],
   yAxis: [
     {
       type: "value",

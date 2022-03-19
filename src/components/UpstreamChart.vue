@@ -22,14 +22,46 @@ const chartOption: EChartsOption = {
   },
   tooltip: {
     trigger: "axis",
-  },
-  xAxis: {
-    type: "category",
-    axisLabel: {
-      formatter: "ch{value}",
+    formatter: (args: any[]) => {
+      const channelData = combinedUpstream[args[0].dataIndex];
+      let tooltip = `<p>Channel ${args[0].axisValue} <br /> ${channelData.channelType} @ ${channelData.modulation}</p> `;
+      args.forEach(
+        ({
+          marker,
+          seriesName,
+          value,
+        }: {
+          marker: string;
+          seriesName: string;
+          value: number;
+        }) => {
+          value = value || 0;
+          tooltip += `<p>${marker} ${seriesName} ${value} dBmV</p>`;
+        }
+      );
+
+      return tooltip;
     },
-    data: combinedUpstream.map((docsis) => docsis.channelId),
   },
+  xAxis: [
+    {
+      type: "category",
+      axisLabel: {
+        formatter: "ch{value}",
+      },
+      axisTick: {
+        alignWithLabel: true,
+      },
+      data: combinedUpstream.map((docsis) => docsis.channelId),
+    },
+    {
+      type: "category",
+      axisTick: {
+        alignWithLabel: true,
+      },
+      data: combinedUpstream.map((docsis) => docsis.modulation),
+    },
+  ],
   yAxis: {
     type: "value",
     axisLabel: {
