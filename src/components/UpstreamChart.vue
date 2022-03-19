@@ -1,12 +1,13 @@
 <template>
-  <v-chart class="chart" :option="option" autoresize />
+  <v-chart class="chart" :option="option" :theme="theme" autoresize />
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, inject } from "vue";
 import type { EChartsOption } from "echarts";
 import * as R from "remeda";
 const props = defineProps(["docsisData"]);
+const theme = inject("theme");
 
 const combinedUpstream = R.sortBy(
   [

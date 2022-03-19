@@ -1,6 +1,20 @@
 <script setup lang="ts">
+import { provide } from "vue";
 import DocsisStatus from "./components/DocsisStatus.vue";
 import TheWelcome from "./components/TheWelcome.vue";
+
+function getMediaPreference() {
+  const hasDarkPreference = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  if (hasDarkPreference) {
+    return "dark";
+  } else {
+    return "light";
+  }
+}
+
+provide("theme", getMediaPreference());
 </script>
 
 <template>

@@ -1,13 +1,14 @@
 <template>
-  <v-chart class="chart" :option="option" autoresize />
+  <v-chart class="chart" :option="option" :theme="theme" autoresize />
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, inject } from "vue";
 import type { EChartsOption } from "echarts";
 import * as R from "remeda";
 
 const props = defineProps(["docsisData"]);
+const theme = inject("theme");
 const units = {
   "Power level": "dBmV",
   SNR: "dB",
@@ -19,7 +20,6 @@ const combinedDownstream = R.sortBy(
   ],
   R.prop("frequency")
 );
-const colors = ["#5470C6", "#EE6666"];
 
 const chartOption: EChartsOption = {
   title: {
@@ -28,8 +28,8 @@ const chartOption: EChartsOption = {
   tooltip: {
     trigger: "axis",
     formatter: (args: any[]) => {
-      const modulation = combinedDownstream[args[0].dataIndex]?.modulation;
-      let tooltip = `<p>Channel ${args[0].axisValue} @ ${modulation}</p> `;
+      const channelData = combinedDownstream[args[0].dataIndex];
+      let tooltip = `<p>Channel ${args[0].axisValue} <br /> ${channelData.channelType} @ ${channelData.modulation}</p> `;
       args.forEach(
         ({
           marker,
