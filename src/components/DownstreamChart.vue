@@ -43,7 +43,7 @@ const chartOption: EChartsOption = {
     {
       type: "value",
       axisLabel: {
-        formatter: "{value} dBµV",
+        formatter: "{value} dB",
       },
       axisPointer: {
         snap: true,

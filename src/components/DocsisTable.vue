@@ -20,7 +20,7 @@
           <th>Frequency</th>
           <th>
             Signal to noise ratio
-            <br />(SNR) in dBµV
+            <br />(SNR) in dB
           </th>
         </tr>
       </thead>
