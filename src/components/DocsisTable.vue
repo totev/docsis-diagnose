@@ -89,4 +89,7 @@ function getFrequency(
 }
 </script>
 <style scoped>
+.pure-table-striped tr:nth-child(2n-1) td {
+  background-color: var(--color-background-mute);
+}
 </style>
