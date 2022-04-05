@@ -3,11 +3,14 @@
     <h2>Docsis data analysis from {{ docsisTime }}</h2>
     <span>
       The given data contains
-      <b>{{ upstreamChannelsCount }}</b> upstream channels, including
-      <b>{{ upstreamOfdmaChannelsCount }}</b> OFDMA channels and
+      <b>{{ upstreamChannelsCount }}</b>
+      upstream channel{{ pluralize(upstreamChannelsCount) }}, including
+      <b>{{ upstreamOfdmaChannelsCount }}</b>
+      OFDMA channel{{ pluralize(upstreamOfdmaChannelsCount) }} and
       <b>{{ downstreamChannelsCount }}</b>
-      downstream channels including
-      <b>{{ downstreamOfdmChannelsCount }}</b> OFDM channels.
+      downstream channel{{ pluralize(downstreamChannelsCount) }} including
+      <b>{{ downstreamOfdmChannelsCount }}</b>
+      OFDM channel{{ pluralize(downstreamOfdmChannelsCount) }}.
     </span>
   </div>
 </template>
@@ -30,4 +33,8 @@ const downstreamChannelsCount = computed(
 const downstreamOfdmChannelsCount = computed(
   () => props.docsisData.downstreamOfdm?.length ?? 0
 );
+
+function pluralize(count = 0): string {
+  return count > 1 ? "s" : "";
+}
 </script>
