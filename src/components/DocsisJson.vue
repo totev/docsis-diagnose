@@ -1,6 +1,8 @@
 <template>
-  <h2>JSON representation</h2>
-  <HideShow>{{ docsisData }}</HideShow>
+  <div>
+    <h2>JSON representation</h2>
+    <HideShow>{{ docsisData }}</HideShow>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -8,6 +8,7 @@ import DownloadChart from "./DownstreamChart.vue";
 import UploadChart from "./UpstreamChart.vue";
 import DocsisTable from "./DocsisTable.vue";
 import DocsisJson from "./DocsisJson.vue";
+import Overview from "./Overview.vue";
 const state = reactive({ docsisJson: "" });
 
 function parseHash(locationHash: string): void {
@@ -37,10 +38,11 @@ onUnmounted(() => {
 <template>
   <div class="charts">
     <div v-if="state.docsisJson">
+      <Overview :docsisData="state.docsisJson" class="block" />
       <DownloadChart :docsisData="state.docsisJson" />
       <UploadChart :docsisData="state.docsisJson" />
-      <DocsisTable :docsisData="state.docsisJson" />
-      <DocsisJson :docsisData="state.docsisJson" />
+      <DocsisTable :docsisData="state.docsisJson" class="block" />
+      <DocsisJson :docsisData="state.docsisJson" class="block" />
       <pre v-show="false">
         {{ state.docsisJson }}
       </pre>
@@ -57,5 +59,8 @@ onUnmounted(() => {
 <style scoped>
 .charts {
   min-width: 600px;
+}
+.block {
+  padding-bottom: 1vh;
 }
 </style>
